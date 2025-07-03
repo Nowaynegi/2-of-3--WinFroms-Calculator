@@ -14,7 +14,8 @@ namespace WinForms_Calculator
         {
 
         }
-        private void ButtonCLick(object sender, EventArgs e)
+
+        private void ButtonClick(object sender, EventArgs e)
         {
             currentCalculaton += (sender as Button).Text;
             Output.Text = currentCalculaton;
@@ -34,9 +35,20 @@ namespace WinForms_Calculator
                 currentCalculaton = "";
             }
         }
+
         private void ButtonClearClick(object sender, EventArgs e)
         {
+            Output.Text = "0";
+            currentCalculaton = "";
+        }
 
+        private void Button_ClearEntry_Click(object sender, EventArgs e)
+        {
+            if(currentCalculaton.Length > 0)
+            {
+                currentCalculaton = currentCalculaton.Remove(currentCalculaton.Length-1,1);
+            }
+            Output.Text = currentCalculaton;
         }
     }
 }
